@@ -1,0 +1,78 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  background-color: #111;
+  min-height: 100vh;
+  width: 100%;
+}
+
+main {
+  min-height: 100vh;
+  max-height: 100vh;
+  height: 100vh;
+  width: 100%;
+  background-color: #fff;
+  border: 0.125rem green solid;
+  display: grid;
+}
+
+.clip {
+  display: none;
+}
+
+.drum-machine {
+  min-height: 50vh;
+  max-height: 50vh;
+  height: 50vh;
+  width: 90%;
+  background-color: #111;
+  margin: auto;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.drum-pads-container {
+  grid-area: drum-pads;
+  display: grid;
+  height: 100%;
+  width: 100%;
+  gap: 0.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  place-content: center center;
+}
+
+.drum-pad {
+  padding: 0.3125rem;
+  background-color: #888;
+  border: 0.125rem solid red;
+  height: 5vh;
+  width: 100%;
+  display: grid;
+  place-items: center center;
+  font-weight: bolder;
+  font-size: min(2rem, 1.5vh);
+  cursor: pointer;
+}
+
+.controls-container {
+  height: 25vh;
+  width: 100%;
+  justify-items: center;
+  background-color: black;
+  border-radius: 0;
+  color: white;
+  border: 0.125rem dashed green;
+}
+
+.btn-switch-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}

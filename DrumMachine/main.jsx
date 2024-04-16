@@ -54,10 +54,12 @@ class DrumMachine extends React.Component {
   handleDrumsetToggle = () => {
     this.state.drumset === 0
       ? this.setState((state) => ({
-          drumset: state.drumset + 1
+          drumset: state.drumset + 1,
+          drumpad: drumsetnames[state.drumset + 1]
         }))
       : this.setState((state) => ({
-          drumset: state.drumset - 1
+          drumset: state.drumset - 1,
+          drumpad: drumsetnames[state.drumset - 1]
         }));
   };
 

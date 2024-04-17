@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { Card } from "react-bootstrap";
-import drumsets, { drumsetnames, isValidKey } from "./drummachine.js";
+import drumsets, { drumsetnames, isValidKey } from "drummachine";
 
 class App extends React.Component {
   constructor(props) {
@@ -102,13 +102,14 @@ class DrumMachine extends React.Component {
   render() {
     const currDrumSet = drumsets[drumsetnames[this.state.drumset]];
     const btnClass = this.state.power ? "btn-danger" : "btn-secondary";
+    const drumpadClass = this.state.power ? "drum-pad": "drum-pad drum-pad-inactive";
     return (
       <Card id="drum-machine" className="drum-machine">
         <div className="drum-pads-container">
           {Object.entries(currDrumSet).map(([key, value]) => (
             <div
               key={key}
-              className="drum-pad"
+              className={drumpadClass}
               onClick={this.handleDrumPad}
               id={key}
             >
@@ -128,7 +129,7 @@ class DrumMachine extends React.Component {
         </div>
         <Card className="controls-container">
           <div className="btn-switch-container">
-            <Form.Label className="mt-2" id="display">
+            <Form.Label className="mt-2 mx-1" id="display">
               {this.state.drumpad}
             </Form.Label>
             <div>
@@ -149,7 +150,7 @@ class DrumMachine extends React.Component {
               {"Volume: " + Math.ceil(this.state.volume * 100)}
             </Form.Label>
             <Form.Range
-              className="form-range"
+              className="form-range mx-auto"
               min="0"
               max="1"
               step="0.01"
@@ -157,19 +158,19 @@ class DrumMachine extends React.Component {
               onChange={this.handleVolumeChange}
             />
           </div>
-            <Button onClick={this.handlePowerButton} className={btnClass}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="10"
-                height="10"
-                fill="currentColor"
-                className="bi bi-power flex-fill"
-                viewBox="0 0 16 16"
-              >
-                <path d="M7.5 1v7h1V1z" />
-                <path d="M3 8.812a5 5 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812" />
-              </svg>
-            </Button>
+          <Button onClick={this.handlePowerButton} className={btnClass + " mx-auto"}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="10"
+              height="10"
+              fill="currentColor"
+              className="bi bi-power"
+              viewBox="0 0 16 16"
+            >
+              <path d="M7.5 1v7h1V1z" />
+              <path d="M3 8.812a5 5 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812" />
+            </svg>
+          </Button>
         </Card>
       </Card>
     );

@@ -60,6 +60,12 @@ main {
   cursor: pointer;
 }
 
+.drum-pad-inactive {
+  border: 0.125rem solid gray;
+  font-weight: normal;
+  cursor: none;
+}
+
 .controls-container {
   height: 25vh;
   width: 100%;

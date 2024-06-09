@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { Card } from "react-bootstrap";
-import drumsets, { drumsetnames, isValidKey } from "drummachine";
+import drumsets, { drumsetnames, isValidKey } from "drummachine.mjs";
 
 class App extends React.Component {
   constructor(props) {
